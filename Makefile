@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/23 21:34:11 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/23 21:36:53 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(OBJ_DIR):
 
 # Lib Rules
 submodules:
-	@if [ ! -d "$(LIB_DIR)" ]; then \
+	@if [ ! -f "$(LIB_DIR)/.git" ]; then \
 		echo "Inicializando y actualizando submódulos..."; \
 		git submodule update --init --recursive; \
 	fi
