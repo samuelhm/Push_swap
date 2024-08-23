@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/23 21:00:52 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/23 21:34:11 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRCS = $(addprefix $(SRC_DIR)/,$(SRCS_FILES))
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 # Main entrance
-all: libft $(TARGET)
+all: submodules libft $(TARGET)
 
 # Compile Binary
 $(TARGET): $(OBJS) $(LIBFT)
@@ -54,6 +54,12 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 # Lib Rules
+submodules:
+	@if [ ! -d "$(LIB_DIR)" ]; then \
+		echo "Inicializando y actualizando submódulos..."; \
+		git submodule update --init --recursive; \
+	fi
+
 libft:
 	@$(MAKE) --silent --no-print-directory -C $(LIBFT_DIR)
 
@@ -76,4 +82,4 @@ re: fclean all
 
 -include $(OBJS:.o=.d)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re submodules
