@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 21:55:34 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/24 17:58:52 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/25 00:56:37 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
-int	args_is_ok(char *argv[]);
+int		args_is_ok(char *argv[]);
+int		init_stack(t_stack *a, char *argv[], int ssize);
+void	free_stack(t_stack **a);
+
+//Legal Moves
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 
 #endif

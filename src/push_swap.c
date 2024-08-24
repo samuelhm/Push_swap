@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 21:54:55 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/24 18:48:06 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/24 23:18:07 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 
 int	main(int argc, char *argv[])
 {
-	(void) argc;
+	t_stack	*a;
+	t_stack	*b;
+	t_node *test;
+
 	if (!args_is_ok(argv))
 		return (-1);
+	a = ft_calloc(sizeof(t_stack), 1);
+	b = ft_calloc(sizeof(t_stack), 1);
+	init_stack(a, argv, argc - 1);
+	test = a->top;
+	while (test)
+	{
+		ft_printf("%d\n", test->value);
+		test = test->next;
+	}
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
