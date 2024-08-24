@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/23 21:40:31 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/24 19:02:29 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LDFLAGS = -L$(LIBFT_DIR)
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)/include
 
 # Debug
-#CFLAGS += -g -O1 -fsanitize=address
+CFLAGS += -g -O0
 # Directory
 SRC_DIR = src
 OBJ_DIR = obj
@@ -30,7 +30,7 @@ LIBFT_DIR = $(LIB_DIR)/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Source + obj
-SRCS_FILES = push_swap.c
+SRCS_FILES = push_swap.c check_args.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCS_FILES))
 
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
