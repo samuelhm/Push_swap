@@ -6,11 +6,41 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:03:29 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/25 00:22:06 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:41:48 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_min(t_stack *a)
+{
+	t_node	*node;
+	int		min;
+
+	node = a->top;
+	min = node->value;
+	while (node)
+	{
+		if (node->value < min)
+			min = node->value;
+		node = node->next;
+	}
+	return (min);
+}
+
+static void	normalize(t_stack *a)
+{
+	t_node	*node;
+	int		min;
+
+	min = get_min(a);
+	node = a->top;
+	while (node)
+	{
+		node->value -= min;
+		node = node->next;
+	}
+}
 
 int	init_stack(t_stack *a, char *argv[], int ssize)
 {
@@ -34,6 +64,7 @@ int	init_stack(t_stack *a, char *argv[], int ssize)
 		}
 		i--;
 	}
+	normalize(a);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/25 00:56:37 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/25 18:43:08 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LIBFT_DIR = $(LIB_DIR)/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # Source + obj
-SRCS_FILES = push_swap.c check_args.c init_stacks.c swaps.c pushes.c rotates.c
+SRCS_FILES = push_swap.c check_args.c init_stacks.c swaps.c pushes.c rotates.c reverses.c radix_sort.c insert_sort.c sort.c
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCS_FILES))
 
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))

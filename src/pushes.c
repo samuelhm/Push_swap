@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 00:25:45 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/25 00:39:22 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/25 00:59:02 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	push(t_stack *from, t_stack *to)
 		to->top->prev = from->top;
 	to->top = from->top;
 	from->top = newtop;
-
 	from->size--;
 	to->size++;
 }
