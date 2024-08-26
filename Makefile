@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/26 18:00:55 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/26 19:23:05 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LDFLAGS = -L$(LIBFT_DIR)
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)/include
 
 # Debug
-CFLAGS += -g -O0
+#CFLAGS += -g -O0
 # Directory
 SRC_DIR = src
 OBJ_DIR = obj
