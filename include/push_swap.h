@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 21:55:34 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/25 18:51:47 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:00:39 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include "limits.h"
 
 typedef struct s_node
 {
-	long			value;
+	int				value;
+	int				index;
+	int				ca;
+	int				cb;
+	int				pos;
+	int				target;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -34,6 +40,17 @@ int		init_stack(t_stack *a, char *argv[], int ssize);
 void	free_stack(t_stack **a);
 int		get_min(t_stack *a);
 void	sort(t_stack *a, t_stack *b);
+void	calculate_cost(t_stack *a, t_stack *b);
+void	move(t_stack *a, t_stack *b, int cost_a, int cost_b);
+int		is_sorted(t_stack *a);
+int		low_index_pos(t_stack *a);
+void	set_pos(t_stack *a);
+void	set_target_pos(t_stack *a, t_stack *b);
+int		set_target(t_stack *a, int ib, int ti, int target);
+void	cheap_move(t_stack *a, t_stack *b);
+
+//void	print_node(t_node *node);
+//void	print_stack(t_stack *a);
 
 //Legal Moves
 void	sa(t_stack *a);
@@ -49,7 +66,7 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 //Algorhitms
-void	radix_sort(t_stack *a, t_stack *b);
-void	insert_sort(t_stack *a, t_stack *b);
+void	order_three(t_stack *a);
+void	sort_stack(t_stack *a, t_stack *b);
 
 #endif
