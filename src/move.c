@@ -6,13 +6,13 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 01:22:27 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/26 01:49:45 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:33:19 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void revboth(t_stack *a, t_stack *b, int *ca, int *cb)
+static void	revboth(t_stack *a, t_stack *b, int *ca, int *cb)
 {
 	while (*ca < 0 && *cb < 0)
 	{
@@ -75,5 +75,4 @@ void	move(t_stack *a, t_stack *b, int cost_a, int cost_b)
 	rota(a, &cost_a);
 	rotb(b, &cost_b);
 	pa(a, b);
-
 }

@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 20:03:29 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/26 17:14:49 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:32:14 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,6 @@ int	init_stack(t_stack *a, char *argv[], int ssize)
 	{
 		temp = ft_calloc(sizeof(t_node), 1);
 		temp->value = ft_atoi(argv[i]);
-		temp->pos = -1;
-		temp->target = -1;
-		temp->ca = -1;
-		temp->cb = -1;
 		if (a->top == NULL)
 			a->top = temp;
 		else

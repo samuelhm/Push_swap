@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:37:25 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/26 17:49:28 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:32:25 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_sorted(t_stack *a)
 void	order_three(t_stack *a)
 {
 	t_node	*node;
-	int	max;
+	int		max;
 
 	node = a->top;
 	max = 0;

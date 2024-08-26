@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 23:56:49 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/26 17:58:15 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:32:56 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	calculate_cost(t_stack *a, t_stack *b)
 	t_node	*bnode;
 
 	bnode = b->top;
-
 	while (bnode)
 	{
 		bnode->cb = bnode->pos;

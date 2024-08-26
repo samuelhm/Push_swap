@@ -6,7 +6,7 @@
 /*   By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 21:54:55 by shurtado          #+#    #+#             */
-/*   Updated: 2024/08/26 17:30:54 by shurtado         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:32:42 by shurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,4 @@ void	print_node(t_node *node)
 	printf("Node CB: %d\n", node->cb);
 	printf("Node POS: %d\n", node->pos);
 	printf("Node Target: %d\n", node->target);
-}
-
-void	print_stack(t_stack *a)
-{
-	t_node	*node;
-
-	node = a->top;
-
-	printf("-----STACK STATUS-----\n");
-	while (node)
-	{
-		print_node(node);
-		node = node->next;
-	}
-	printf("-----END STACK STATUS-----\n");
 }
