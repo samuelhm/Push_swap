@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/08/26 19:23:05 by shurtado         ###   ########.fr        #
+#    Updated: 2024/08/27 02:22:15 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,9 +52,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile | $(OBJ_DIR)
 # Create obj dir
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
-
-# Lib Rules
-submodules:
 
 libft:
 	@$(MAKE) --silent --no-print-directory -C $(LIBFT_DIR)
