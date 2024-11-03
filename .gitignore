@@ -2,6 +2,7 @@
 *.swp
 .vscode/
 *.tmp
+push_swap
 # Prerequisites
 *.d
 
