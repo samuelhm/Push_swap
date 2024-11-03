@@ -6,7 +6,7 @@
 #    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/10/29 13:47:25 by shurtado         ###   ########.fr        #
+#    Updated: 2024/11/03 16:48:12 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRCS_FILES = push_swap.c check_args.c init_stacks.c swaps.c pushes.c rotates.c r
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCS_FILES))
 
 # Bonus Source + Objs
-BNS_SRCS_FILES = main_bonus.c check_args_bonus.c
+BNS_SRCS_FILES = main_bonus.c check_args_bonus.c init_free.c
 BNS_SRCS = $(addprefix $(BNS_SRC_DIR)/,$(BNS_SRCS_FILES))
 
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))

@@ -16,12 +16,27 @@ static int	all_is_digit(char *argv[]);
 static int	all_is_integer(char *argv[]);
 static int	none_repeated(char *argv[]);
 
-int	args_is_ok(char *argv[])
+bool	is_sorted(t_stack *a)
+{
+	t_node	*node;
+
+	node = a->top;
+	while (node)
+	{
+		if (node->next)
+			if (node->value > node->next->value)
+				return (false);
+		node = node->next;
+	}
+	return (true);
+}
+
+int	args_ok(char *argv[])
 {
 	if (all_is_digit(argv) && all_is_integer(argv) && none_repeated(argv))
-		return (1);
+		return (EXIT_FAILURE);
 	ft_printf("ERROR\n");
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 static int	all_is_digit(char *argv[])
