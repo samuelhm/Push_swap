@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shurtado <shurtado@student.42barcelona.fr> +#+  +:+       +#+         #
+#    By: shurtado <shurtado@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/23 20:46:49 by shurtado          #+#    #+#              #
-#    Updated: 2024/11/03 16:48:12 by shurtado         ###   ########.fr        #
+#    Updated: 2024/11/03 19:36:21 by shurtado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ TARGET = push_swap
 BONUS = checker
 CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -L$(LIBFT_DIR)
-INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)/include
-BNS_INCLUDES = -I$(BNS_INC_DIR) -I$(LIBFT_DIR)/include
+INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)/inc
+BNS_INCLUDES = -I$(BNS_INC_DIR) -I$(LIBFT_DIR)/inc
 
 # Debug
 #CFLAGS += -g -O0
@@ -39,11 +39,13 @@ SRCS_FILES = push_swap.c check_args.c init_stacks.c swaps.c pushes.c rotates.c r
 SRCS = $(addprefix $(SRC_DIR)/,$(SRCS_FILES))
 
 # Bonus Source + Objs
-BNS_SRCS_FILES = main_bonus.c check_args_bonus.c init_free.c
+BNS_SRCS_FILES = main_bonus.c check_args_bonus.c init_free.c pushes.c reverses.c rotates.c
 BNS_SRCS = $(addprefix $(BNS_SRC_DIR)/,$(BNS_SRCS_FILES))
 
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 BNS_OBJS = $(patsubst $(BNS_SRC_DIR)/%.c,$(BNS_OBJ_DIR)/%.o,$(BNS_SRCS))
+
+DEPS = $(patsubst %.o,%.d,$@)
 
 # Main entrance
 all: libft $(TARGET)
@@ -52,22 +54,22 @@ bonus: libft $(BONUS)
 
 # Compile Checker
 $(BONUS): $(BNS_OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $(BNS_INCLUDES) $(BNS_OBJS) $(LIBFT) $(LDFLAGS) -o $(BONUS)
+	$(CC) $(CFLAGS) $(BNS_INCLUDES) $(BNS_OBJS) $(LIBFT) $(LDFLAGS) -o $(BONUS)
 	@echo "\033[1;36mBinary $@ created\033[0m"
 
 # Compile Binary
 $(TARGET): $(OBJS) $(LIBFT)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) $(LDFLAGS) -o $(TARGET)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) $(LDFLAGS) -o $(TARGET)
 	@echo "\033[1;36mBinary $@ created\033[0m"
 
 
 # -MMD to include header dependences to .d file and run $(OBJ_DIR) if not exist.make
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@ > /dev/null
+	$(CC) $(CFLAGS) $(INCLUDES) -MMD -MF $(DEPS) -c $< -o $@
 	@echo "\033[0;32mObject $@ created\033[0m"
 
 $(BNS_OBJ_DIR)/%.o: $(BNS_SRC_DIR)/%.c Makefile | $(BNS_OBJ_DIR)
-	@$(CC) $(CFLAGS) $(BNS_INCLUDES) -MMD -c $< -o $@ > /dev/null
+	$(CC) $(CFLAGS) $(BNS_INCLUDES) -MMD -MF $(DEPS) -c $< -o $@
 	@echo "\033[0;32mObject $@ created\033[0m"
 
 # Create obj dir
